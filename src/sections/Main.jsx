@@ -3,6 +3,7 @@ import { ExtensionsContext } from "../contexts/ExtensionsContext";
 import ExtensionCard from "../components/ExtensionCard";
 import Button from "../components/Button";
 import FilterButton from "../components/FilterButton";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function Main() {
   const { extensions, filter, setFilter } = useContext(ExtensionsContext);
@@ -35,13 +36,18 @@ export default function Main() {
         </div>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {extensions.length > 0 ? (
-          extensions.map((extension, index) => (
-            <ExtensionCard key={index} extension={extension} />
-          ))
-        ) : (
-          <p>No extensions found.</p>
-        )}
+        <AnimatePresence>
+          {extensions.map((extension) => (
+            <motion.div
+              key={extension.name}
+              className="flex"
+              exit={{ opacity: 0, scale: 0.5 }}
+              layout
+            >
+              <ExtensionCard extension={extension} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
     </main>
   );
