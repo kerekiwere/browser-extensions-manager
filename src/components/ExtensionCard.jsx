@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "./Button";
 import ToggleSwitch from "./ToggleSwitch";
+import { ExtensionsContext } from "../contexts/ExtensionsContext";
 
 export default function ExtensionCard({ extension }) {
+  const { removeExtension } = useContext(ExtensionsContext);
+
   return (
     <div className="bg-neutral-0 flex flex-col justify-between rounded-xl border border-b-3 border-neutral-200 px-5 py-4 dark:border-neutral-900 dark:bg-neutral-800">
       <div className="mb-5 flex gap-4">
@@ -17,7 +20,7 @@ export default function ExtensionCard({ extension }) {
         </div>
       </div>
       <div className="flex items-center justify-between">
-        <Button>Remove</Button>
+        <Button onClick={() => removeExtension(extension.name)}>Remove</Button>
         <ToggleSwitch isActive={extension.isActive} />
       </div>
     </div>

@@ -35,9 +35,13 @@ export default function Main() {
         </div>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {extensions.map((extension, index) => (
-          <ExtensionCard key={index} extension={extension} />
-        ))}
+        {extensions.length > 0 ? (
+          extensions.map((extension, index) => (
+            <ExtensionCard key={index} extension={extension} />
+          ))
+        ) : (
+          <p>No extensions found.</p>
+        )}
       </div>
     </main>
   );

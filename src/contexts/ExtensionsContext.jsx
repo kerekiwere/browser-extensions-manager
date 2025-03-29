@@ -21,6 +21,12 @@ const ExtensionsProvider = ({ children }) => {
     });
   }, [filter, extensions]);
 
+  function removeExtension(name) {
+    setExtensions((prevExtensions) =>
+      prevExtensions.filter((ext) => ext.name !== name),
+    );
+  }
+
   return (
     <ExtensionsContext.Provider
       value={{
@@ -28,6 +34,7 @@ const ExtensionsProvider = ({ children }) => {
         setExtensions,
         filter,
         setFilter,
+        removeExtension,
       }}
     >
       {children}
