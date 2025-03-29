@@ -4,7 +4,7 @@ import ToggleSwitch from "./ToggleSwitch";
 
 export default function ExtensionCard({ extension }) {
   return (
-    <div className="bg-neutral-0 rounded-xl border border-b-3 border-neutral-200 px-5 py-4 dark:border-neutral-900 dark:bg-neutral-800">
+    <div className="bg-neutral-0 flex flex-col justify-between rounded-xl border border-b-3 border-neutral-200 px-5 py-4 dark:border-neutral-900 dark:bg-neutral-800">
       <div className="mb-5 flex gap-4">
         <div className="shrink-0">
           <img src={extension.logo} alt={`${extension.name} logo`} />

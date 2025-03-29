@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function ToggleSwitch({ isActive }) {
-  console.log(isActive);
   return (
     <label>
       <div className="relative cursor-pointer">

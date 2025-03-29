@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import FilterButton from "../components/FilterButton";
 
 export default function Main() {
-  const { extensions } = useContext(ExtensionsContext);
+  const { extensions, filter, setFilter } = useContext(ExtensionsContext);
 
   return (
     <main className="container">
@@ -14,9 +14,24 @@ export default function Main() {
           Extensions List
         </h1>
         <div className="flex justify-center gap-3">
-          <FilterButton>All</FilterButton>
-          <FilterButton>Active</FilterButton>
-          <FilterButton>Inactive</FilterButton>
+          <FilterButton
+            onClick={() => setFilter("All")}
+            isActive={filter === "All"}
+          >
+            All
+          </FilterButton>
+          <FilterButton
+            onClick={() => setFilter("Active")}
+            isActive={filter === "Active"}
+          >
+            Active
+          </FilterButton>
+          <FilterButton
+            onClick={() => setFilter("Inactive")}
+            isActive={filter === "Inactive"}
+          >
+            Inactive
+          </FilterButton>
         </div>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
