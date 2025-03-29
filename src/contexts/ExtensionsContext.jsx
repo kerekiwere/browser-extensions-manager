@@ -27,6 +27,14 @@ const ExtensionsProvider = ({ children }) => {
     );
   }
 
+  function toggleActive(name) {
+    setExtensions((prevExtensions) =>
+      prevExtensions.map((ext) =>
+        ext.name === name ? { ...ext, isActive: !ext.isActive } : ext,
+      ),
+    );
+  }
+
   return (
     <ExtensionsContext.Provider
       value={{
@@ -35,6 +43,7 @@ const ExtensionsProvider = ({ children }) => {
         filter,
         setFilter,
         removeExtension,
+        toggleActive,
       }}
     >
       {children}
