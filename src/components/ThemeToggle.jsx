@@ -16,7 +16,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      className="grid aspect-square w-12 cursor-pointer place-items-center rounded-xl bg-neutral-100 dark:bg-neutral-700"
+      className="grid aspect-square w-12 cursor-pointer place-items-center rounded-xl bg-neutral-100 hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600"
       onClick={toggleTheme}
     >
       <img src={moon} alt="Moon icon" className="block dark:hidden" />
