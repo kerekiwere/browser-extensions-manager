@@ -36,6 +36,7 @@ export default function Main() {
         </div>
       </div>
       <div className="grid auto-rows-fr gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {extensions.length < 1 && <p>Oops! We couldn't find any extensions.</p>}
         <AnimatePresence>
           {extensions.map((extension) => (
             <motion.div
